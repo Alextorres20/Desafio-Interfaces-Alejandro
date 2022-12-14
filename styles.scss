@@ -1,0 +1,87 @@
+@use "sass:map";
+
+// @import './scss/pruebas/modal-crear-pruebas', './scss/animaciones/animaciones', './scss/pruebas/crud-pruebas',
+//         './scss/index', './scss/principal', './scss/registro-inicio-sesion' , './scss/humanos/crud-humanos', 
+//         './scss/humanos/modal-crear-humano', './scss/humanos/modal-matar-humano', './scss/humanos/modal-caracteristicas-dios';
+
+@import './scss/FotosVacaciones','./scss/FotoInformacion', './scss/FotoDetallada', './scss/EditorVacaciones', './scss/CrearVacaciones';
+
+$coloresGenerales: (
+    //Fondos Boostrap
+    "primary": #0d6efd,
+    "secundary": #6c757d,
+    "success": #198754,
+    "danger": #dc3545,
+    "warning": #ffc107,
+    "info": #0dcaf0,
+    "light": #f8f9fa,
+    "dark": #212529,
+
+    //Colores de Alicia
+    "letra-clara" : #ffffff,
+    "verde": #66e25f,
+    "amarillo": #ffc423,
+    "rojo": #ea1b59,
+    "iconos": #4a403e,
+    "iconos-hover": #231f1f,
+);
+
+$colorFondoBotones: (
+    "primary": #0d6efd,
+    "secundary": #6c757d,
+    "success": #198754,
+    "danger": #dc3545,
+    "warning": #ffc107,
+    "info": #0dcaf0,
+    "light": #f8f9fa,
+    "dark": #212529
+);
+
+html {
+    
+    height: 100vh;
+    @include fotosVacaciones();
+    @include fotoInformacion();
+    @include fotoDetallada();
+    @include editorVacaciones();
+    @include crearVacaciones();
+    body {
+        
+        background-color: #55e2fe;
+        width: 100%;
+        min-height: 100vh;
+        
+        .container{
+            font-family: Arial, Helvetica, sans-serif;
+            display: grid;
+            justify-items: center;
+            row-gap: 5px;
+            h1{
+                font-family: cursive;
+                text-align: center;
+                color: #9d35ff;
+                span{
+                    color: #ffc107;
+                }
+            }
+            input{
+                width: 15rem;
+            }
+            input[type=checkbox]{
+                width: 100%;
+                height: 20px;
+            }
+            button{
+                width: 16rem;
+                color: #ffffff;
+                background-color: #9d35ff;
+                &:hover{
+                    background-color: #30005d;
+                }
+            }
+
+            
+        }  
+    }
+}
+

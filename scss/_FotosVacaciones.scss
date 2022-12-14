@@ -1,0 +1,199 @@
+@mixin fotosVacaciones() {
+
+    body.FotosVacaciones{
+        background-color:#8c00ff;
+        display: grid;
+        grid-template-areas: 
+            "header header header"
+            "main main main"
+            "footer footer footer";
+        grid-template-columns: 1fr 1fr 1fr;
+        
+        
+        row-gap: 3px;
+        .header{
+            height: 3rem;
+            grid-area: header;
+            background-color: #55e2fe;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            .Buscador-Titulo{
+                margin-left: 1rem;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 1rem;
+                img{
+                    width: 1rem;
+                    height: 1rem;
+                }
+                h3{
+                    font-family: cursive;
+                    text-align: center;
+                    color: #9d35ff;
+                    span{
+                        color: #ffc107;
+                    }
+                }
+            }
+            .menuHamburguesa-botones{
+                margin-right: 1rem;
+                display: flex;
+                align-items: center;
+
+                .menuHamburguesa{
+                    img{
+                        width: 1rem;
+                    }
+                }
+                
+                .botones{
+                    button{
+                        background-color: #8c00ff;
+                        color: #ffff;
+                        &:hover{
+                            background-color: #30005d;
+                        }
+                    }
+                }
+
+                @media (min-width: 650px){
+                    .menuHamburguesa{
+                        img{
+                            display: none;
+                        }
+                    }
+                    .botones{
+                        img{
+                            display: block;
+                        }
+                    }
+                }
+
+                @media (max-width: 650px){
+                    .menuHamburguesa{
+                        display: block;
+                        &.desaparece{
+                            display: none;
+                        }
+                    }
+                    .botones{
+                        display: none;
+                        &.aparece{
+                            display: grid;
+                        }
+                        
+                    }
+                }
+            }
+        }
+        .main{
+            
+            grid-area: main;
+            display: grid;
+            @media (min-width: 650px){
+                &{
+                    grid-template-columns: 1fr 1fr 1fr;
+            
+                }
+            }
+
+            @media (max-width: 650px){
+                &{
+                    grid-template-columns: 1fr 1fr;
+                }
+
+            }
+
+            @media (max-width: 450px){
+                &{
+                    grid-template-columns: 1fr;
+                }
+            }
+            
+            .contenido{
+                display: grid;
+                grid-template-areas: 
+                "foto foto review"
+                "foto foto review"
+                "detalle detalle detalle";
+                justify-self: center;
+                
+                .fotos{
+                    grid-area: foto;
+                    img{
+                        width: 10rem;
+                        height: 10rem;
+                        border: 2px solid #55e2fe;
+                    }
+                }
+                .reviews{
+                    grid-area: review;
+                    display: grid;
+                    justify-items: start;
+                    float: left;
+                    padding: 0 10px;
+                
+                    &:not(:checked) > input {
+                        position:absolute;
+                        top:-9999px;
+                    }
+                    &:not(:checked) > label {
+                        width:1em;
+                        overflow:hidden;
+                        white-space:nowrap;
+                        cursor:pointer;
+                        font-size:25px;
+                        color:#ffff;
+                    }
+                    
+                    
+                    & > input:checked ~ label {
+                        color: #55e2fe;    
+                    }
+                    &:not(:checked) > label:hover,
+                    &:not(:checked) > label:hover ~ label {
+                        color: #acf1ff;  
+                    }
+                    & > input:checked + label:hover,
+                    & > input:checked + label:hover ~ label,
+                    & > input:checked ~ label:hover,
+                    & > input:checked ~ label:hover ~ label,
+                    & > label:hover ~ input:checked ~ label {
+                        color: #12d6fd;
+                    }
+                }
+                .detalles{
+                    justify-self: stretch;
+                    grid-area: detalle;
+                    color: #55e2fe;
+                    text-align: center;
+                }
+            }
+        }
+        .footer{
+            grid-area: footer;
+            .paginacion{
+                
+                ul{
+                    display: flex;
+                    justify-content: space-evenly;
+                    justify-items: center;
+                    li{
+                        list-style: none;
+                        color: #55e2fe;
+                        &:hover{
+                            color: #ffff;
+                        }
+                    }
+                    
+                }
+            }
+            
+        }
+    }
+    
+    
+}

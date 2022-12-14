@@ -1,0 +1,228 @@
+@mixin fotoInformacion() {
+
+    body.fotoInformacion{
+        color: #fff;
+        background-color:#8c00ff;
+        display: grid;
+        grid-template-areas: 
+            "header header header"
+            "main main main"
+            "footer footer footer";
+        grid-template-columns: 1fr 1fr 1fr;
+        
+        row-gap: 3px;
+        .header{
+            grid-area: header;
+            background-color: #55e2fe;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            .Guardar-Titulo{
+                margin-left: 1rem;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 1rem;
+                img{
+                    width: 1rem;
+                    height: 1rem;
+                }
+                h3{
+                    font-family: cursive;
+                    text-align: center;
+                    color: #9d35ff;
+                    span{
+                        color: #ffc107;
+                    }
+                }
+            }
+            .menuHamburguesa-botones{
+                margin-right: 1rem;
+                display: flex;
+                align-items: center;
+
+                .menuHamburguesa{
+                    img{
+                        width: 1rem;
+                    }
+                }
+                
+                .botones{
+                    
+
+                    button{
+                        background-color: #8c00ff;
+                        color: #ffff;
+                        &:hover{
+                            background-color: #30005d;
+                        }
+                    }
+                }
+
+                @media (min-width: 650px){
+                    .menuHamburguesa{
+                        img{
+                            display: none;
+                        }
+                    }
+                    .botones{
+                        img{
+                            display: block;
+                        }
+                    }
+                }
+
+                @media (max-width: 650px){
+                    .menuHamburguesa{
+                        display: block;
+                        &.desaparece{
+                            display: none;
+                        }
+                    }
+                    .botones{
+                        display: none;
+                        &.aparece{
+                            display: grid;
+                        }
+                        
+                    }
+                }
+            }
+        }
+        .main{
+            
+            grid-area: main;
+            
+            .titulo{
+                h1{
+                    text-align: center;
+                    border-bottom: 2px solid #55e2fe;
+                }
+                @media (max-width: 650px){
+                    h1{
+                        border-bottom-style: none;
+                    }
+                }
+            }.contenidos{
+                @media (min-width: 975px){
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-gap:5px;
+                }
+
+                .contenido{
+                    display: grid;
+    
+                    @media (min-width: 650px){
+                        &{
+                            grid-template-areas: 
+                            "foto informacion informacion"
+                            "foto informacion informacion"
+                            "foto informacion informacion";
+                            grid-template-columns: 1fr 2fr;
+                            border-top-style: none;
+                        }
+                    }
+        
+                    
+                    justify-items: center;
+                    
+                    border-top: 2px solid #55e2fe;
+                    .foto{
+                        grid-area: foto;
+                        align-self: center;
+                        @media (max-width: 950px){
+                            &{
+                                margin-top: 20px;
+                            }
+                        }
+                        img{
+                            width: 18rem;
+                            height: 15rem;
+                            border: 2px solid #55e2fe; 
+                        }
+    
+                    }
+                @media (max-width: 650px){
+                    &{
+                        grid-template-areas: 
+                    "foto informacion informacion";
+                    grid-template-columns: 1fr 2fr;
+                    align-items: center;
+                        .foto{
+                            img{
+                                width: 10rem;
+                                height: 10rem;
+                            }
+                        }
+                        .informacion{
+                            h4{
+                                align-self: center;
+                            }
+                            p{
+                                display: none;
+                            }
+                        }
+                    }
+                }
+                    
+                    .informacion{
+                        grid-area: informacion;
+                        h4{
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+            
+            
+        }
+        .footer{
+            grid-area: footer;
+            background-color: #55e2fe;
+            display: flex;
+            justify-content: center;
+            .reviews{
+                grid-area: review;
+                display: flex;
+                justify-items: start;
+                float: left;
+                padding: 0 10px;
+            
+                &:not(:checked) > input {
+                    position:absolute;
+                    top:-9999px;
+                }
+                &:not(:checked) > label {
+                    width:1em;
+                    overflow:hidden;
+                    white-space:nowrap;
+                    cursor:pointer;
+                    font-size:25px;
+                    color:#8c00ff;
+                }
+                &:not(:checked) > label:before {
+                    content: '★ ';
+                }
+                & > input:checked ~ label {
+                    color: #aa4bf8;    
+                }
+                &:not(:checked) > label:hover,
+                &:not(:checked) > label:hover ~ label {
+                    color: #750082;  
+                }
+                & > input:checked + label:hover,
+                & > input:checked + label:hover ~ label,
+                & > input:checked ~ label:hover,
+                & > input:checked ~ label:hover ~ label,
+                & > label:hover ~ input:checked ~ label {
+                    color: #9300a7;
+                }
+            }
+            
+        }
+    }
+    
+    
+}

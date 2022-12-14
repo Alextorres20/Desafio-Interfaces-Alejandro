@@ -1,0 +1,230 @@
+@mixin crearVacaciones() {
+    body.crearVacaciones{
+        color: #fff;
+        background-color:#8c00ff;
+        display: grid;
+        grid-template-areas: 
+            "header header header"
+            "main main main";
+
+            grid-template-columns: 1fr 1fr 1fr;
+        
+            row-gap: 3px;
+            .header{
+                height: 5rem;
+                grid-area: header;
+                background-color: #55e2fe;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                .Guardar-Titulo{
+                    margin-left: 1rem;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 1rem;
+                    img{
+                        width: 1rem;
+                        height: 1rem;
+                    }
+                    h3{
+                        font-family: cursive;
+                        text-align: center;
+                        color: #9d35ff;
+                        span{
+                            color: #ffc107;
+                        }
+                    }
+                }
+                .menuHamburguesa-botones{
+                    margin-right: 1rem;
+                    display: flex;
+                    align-items: center;
+    
+                    .menuHamburguesa{
+                        img{
+                            width: 1rem;
+                        }
+                    }
+                    
+                    .botones{
+                        button{
+                            background-color: #8c00ff;
+                            color: #ffff;
+                            &:hover{
+                                background-color: #30005d;
+                            }
+                        }
+                    }
+
+
+                    @media (min-width: 600px){
+                        .menuHamburguesa{
+                            img{
+                                display: none;
+                            }
+                        }
+                        .botones{
+                            img{
+                                display: block;
+                            }
+                        }
+                    }
+    
+                    @media (max-width: 600px){
+                        .menuHamburguesa{
+                            display: block;
+                            &.desaparece{
+                                display: none;
+                            }
+                        }
+                        .botones{
+                            display: none;
+                            &.aparece{
+                                display: grid;
+                            }
+                            
+                        }
+                    }
+                }
+            }
+            .main{
+                grid-area: main;
+                display: grid;
+                grid-gap: 5px;
+                justify-content: center;
+                .titulo{
+                    display: grid;
+                    justify-items: center;
+                    grid-row-gap: 10px;
+                    input{
+                        width: 50%;
+                        height: 100%;
+                    }
+                    h1{
+                        width: 100%;
+                        border-top: 2px solid #55e2fe;
+                        border-bottom: 2px solid #55e2fe;
+                        text-align: center;
+                    }
+                }
+                .caracteristicas{
+                    display: grid;
+                    grid-template-columns: repeat(5, 1fr);
+                    grid-template-rows: repeat(6, 100px);
+                    grid-gap: 1rem;
+                    .camara{
+                        display: grid;
+                        justify-items: center;
+                        align-items: center;
+                        grid-column-start: 1;
+                        grid-column-end: 3;
+                        grid-row-start: 1;
+                        grid-row-end: 3;
+                        background-color: #fff;
+                        img{
+                            @media (min-width: 600px) {
+                                &{
+                                    width: 3rem;  
+                                }
+                            }
+        
+                            @media (max-width: 600px) {
+                                &{  
+                                    width: 1rem;
+                                }
+                            }
+                            
+                        }
+                    }
+                    .camara-azul{
+                        display: grid;
+                        justify-items: center;
+                        align-items: end;
+                        grid-column-start: 3;
+                        grid-row-start: 1;
+                        img{
+                            @media (min-width: 600px) {
+                                &{
+                                    width: 5rem;  
+                                }
+                            }
+        
+                            @media (max-width: 600px) {
+                                &{  
+                                    width: 3rem;
+                                }
+                            }
+                            
+                        }
+                    }
+                    .basura{
+                        display: grid;
+                        align-items: end;
+                        justify-items: center;
+                        grid-column-start: 6;
+                        img{
+                            @media (min-width: 600px) {
+                                &{
+                                    width: 5rem;  
+                                }
+                            }
+        
+                            @media (max-width: 600px) {
+                                &{  
+                                    width: 3rem;
+                                }
+                            }
+                        }
+                    }   
+                    .tituloPunto{
+                        display: grid;
+                        grid-column-start: 3;
+                        grid-column-end: 7;
+                        grid-row-start: 2;
+                        input{
+                            width: -webkit-fill-available;
+                            height: -webkit-fill-available;
+                            @media (max-width: 600px) {
+                                &{  
+                                    text-align: center;
+                                }
+                            }
+                        }
+                    }
+                    .hacer{
+                        grid-column-start: 1;
+                        grid-column-end: 7;
+                        grid-row-start: 3;
+                        grid-row-end: 5;
+                        input{
+                            width: -webkit-fill-available;
+                            height: -webkit-fill-available;
+                            @media (max-width: 600px) {
+                                &{  
+                                    text-align: center;
+                                }
+                            }
+                        }
+                    }
+
+                    .añadir-Fichero{
+                        display: grid;
+                        justify-items: center;
+                        align-items: center;
+                        grid-column-start: 1;
+                        grid-column-end: 7;
+                        grid-row-start: 5;
+                        grid-row-end: 8;
+                        background-color: #55e2fe;
+                        img{
+                            width: 5rem;
+                        }
+                    }
+                }
+                
+            }
+    }
+
+}

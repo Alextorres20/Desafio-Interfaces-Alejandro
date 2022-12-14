@@ -1,0 +1,808 @@
+@charset "UTF-8";
+html {
+  height: 100vh;
+}
+html body.FotosVacaciones {
+  background-color: #8c00ff;
+  display: grid;
+  grid-template-areas: "header header header" "main main main" "footer footer footer";
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 3px;
+}
+html body.FotosVacaciones .header {
+  height: 3rem;
+  grid-area: header;
+  background-color: #55e2fe;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+html body.FotosVacaciones .header .Buscador-Titulo {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+html body.FotosVacaciones .header .Buscador-Titulo img {
+  width: 1rem;
+  height: 1rem;
+}
+html body.FotosVacaciones .header .Buscador-Titulo h3 {
+  font-family: cursive;
+  text-align: center;
+  color: #9d35ff;
+}
+html body.FotosVacaciones .header .Buscador-Titulo h3 span {
+  color: #ffc107;
+}
+html body.FotosVacaciones .header .menuHamburguesa-botones {
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+}
+html body.FotosVacaciones .header .menuHamburguesa-botones .menuHamburguesa img {
+  width: 1rem;
+}
+html body.FotosVacaciones .header .menuHamburguesa-botones .botones button {
+  background-color: #8c00ff;
+  color: white;
+}
+html body.FotosVacaciones .header .menuHamburguesa-botones .botones button:hover {
+  background-color: #30005d;
+}
+@media (min-width: 650px) {
+  html body.FotosVacaciones .header .menuHamburguesa-botones .menuHamburguesa img {
+    display: none;
+  }
+  html body.FotosVacaciones .header .menuHamburguesa-botones .botones img {
+    display: block;
+  }
+}
+@media (max-width: 650px) {
+  html body.FotosVacaciones .header .menuHamburguesa-botones .menuHamburguesa {
+    display: block;
+  }
+  html body.FotosVacaciones .header .menuHamburguesa-botones .menuHamburguesa.desaparece {
+    display: none;
+  }
+  html body.FotosVacaciones .header .menuHamburguesa-botones .botones {
+    display: none;
+  }
+  html body.FotosVacaciones .header .menuHamburguesa-botones .botones.aparece {
+    display: grid;
+  }
+}
+html body.FotosVacaciones .main {
+  grid-area: main;
+  display: grid;
+}
+@media (min-width: 650px) {
+  html body.FotosVacaciones .main {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (max-width: 650px) {
+  html body.FotosVacaciones .main {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 450px) {
+  html body.FotosVacaciones .main {
+    grid-template-columns: 1fr;
+  }
+}
+html body.FotosVacaciones .main .contenido {
+  display: grid;
+  grid-template-areas: "foto foto review" "foto foto review" "detalle detalle detalle";
+  justify-self: center;
+}
+html body.FotosVacaciones .main .contenido .fotos {
+  grid-area: foto;
+}
+html body.FotosVacaciones .main .contenido .fotos img {
+  width: 10rem;
+  height: 10rem;
+  border: 2px solid #55e2fe;
+}
+html body.FotosVacaciones .main .contenido .reviews {
+  grid-area: review;
+  display: grid;
+  justify-items: start;
+  float: left;
+  padding: 0 10px;
+}
+html body.FotosVacaciones .main .contenido .reviews:not(:checked) > input {
+  position: absolute;
+  top: -9999px;
+}
+html body.FotosVacaciones .main .contenido .reviews:not(:checked) > label {
+  width: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 25px;
+  color: white;
+}
+html body.FotosVacaciones .main .contenido .reviews > input:checked ~ label {
+  color: #55e2fe;
+}
+html body.FotosVacaciones .main .contenido .reviews:not(:checked) > label:hover, html body.FotosVacaciones .main .contenido .reviews:not(:checked) > label:hover ~ label {
+  color: #acf1ff;
+}
+html body.FotosVacaciones .main .contenido .reviews > input:checked + label:hover, html body.FotosVacaciones .main .contenido .reviews > input:checked + label:hover ~ label, html body.FotosVacaciones .main .contenido .reviews > input:checked ~ label:hover, html body.FotosVacaciones .main .contenido .reviews > input:checked ~ label:hover ~ label, html body.FotosVacaciones .main .contenido .reviews > label:hover ~ input:checked ~ label {
+  color: #12d6fd;
+}
+html body.FotosVacaciones .main .contenido .detalles {
+  justify-self: stretch;
+  grid-area: detalle;
+  color: #55e2fe;
+  text-align: center;
+}
+html body.FotosVacaciones .footer {
+  grid-area: footer;
+}
+html body.FotosVacaciones .footer .paginacion ul {
+  display: flex;
+  justify-content: space-evenly;
+  justify-items: center;
+}
+html body.FotosVacaciones .footer .paginacion ul li {
+  list-style: none;
+  color: #55e2fe;
+}
+html body.FotosVacaciones .footer .paginacion ul li:hover {
+  color: white;
+}
+html body.fotoInformacion {
+  color: #fff;
+  background-color: #8c00ff;
+  display: grid;
+  grid-template-areas: "header header header" "main main main" "footer footer footer";
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 3px;
+}
+html body.fotoInformacion .header {
+  grid-area: header;
+  background-color: #55e2fe;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+html body.fotoInformacion .header .Guardar-Titulo {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+html body.fotoInformacion .header .Guardar-Titulo img {
+  width: 1rem;
+  height: 1rem;
+}
+html body.fotoInformacion .header .Guardar-Titulo h3 {
+  font-family: cursive;
+  text-align: center;
+  color: #9d35ff;
+}
+html body.fotoInformacion .header .Guardar-Titulo h3 span {
+  color: #ffc107;
+}
+html body.fotoInformacion .header .menuHamburguesa-botones {
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+}
+html body.fotoInformacion .header .menuHamburguesa-botones .menuHamburguesa img {
+  width: 1rem;
+}
+html body.fotoInformacion .header .menuHamburguesa-botones .botones button {
+  background-color: #8c00ff;
+  color: white;
+}
+html body.fotoInformacion .header .menuHamburguesa-botones .botones button:hover {
+  background-color: #30005d;
+}
+@media (min-width: 650px) {
+  html body.fotoInformacion .header .menuHamburguesa-botones .menuHamburguesa img {
+    display: none;
+  }
+  html body.fotoInformacion .header .menuHamburguesa-botones .botones img {
+    display: block;
+  }
+}
+@media (max-width: 650px) {
+  html body.fotoInformacion .header .menuHamburguesa-botones .menuHamburguesa {
+    display: block;
+  }
+  html body.fotoInformacion .header .menuHamburguesa-botones .menuHamburguesa.desaparece {
+    display: none;
+  }
+  html body.fotoInformacion .header .menuHamburguesa-botones .botones {
+    display: none;
+  }
+  html body.fotoInformacion .header .menuHamburguesa-botones .botones.aparece {
+    display: grid;
+  }
+}
+html body.fotoInformacion .main {
+  grid-area: main;
+}
+html body.fotoInformacion .main .titulo h1 {
+  text-align: center;
+  border-bottom: 2px solid #55e2fe;
+}
+@media (max-width: 650px) {
+  html body.fotoInformacion .main .titulo h1 {
+    border-bottom-style: none;
+  }
+}
+@media (min-width: 975px) {
+  html body.fotoInformacion .main .contenidos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 5px;
+  }
+}
+html body.fotoInformacion .main .contenidos .contenido {
+  display: grid;
+  justify-items: center;
+  border-top: 2px solid #55e2fe;
+}
+@media (min-width: 650px) {
+  html body.fotoInformacion .main .contenidos .contenido {
+    grid-template-areas: "foto informacion informacion" "foto informacion informacion" "foto informacion informacion";
+    grid-template-columns: 1fr 2fr;
+    border-top-style: none;
+  }
+}
+html body.fotoInformacion .main .contenidos .contenido .foto {
+  grid-area: foto;
+  align-self: center;
+}
+@media (max-width: 950px) {
+  html body.fotoInformacion .main .contenidos .contenido .foto {
+    margin-top: 20px;
+  }
+}
+html body.fotoInformacion .main .contenidos .contenido .foto img {
+  width: 18rem;
+  height: 15rem;
+  border: 2px solid #55e2fe;
+}
+@media (max-width: 650px) {
+  html body.fotoInformacion .main .contenidos .contenido {
+    grid-template-areas: "foto informacion informacion";
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+  }
+  html body.fotoInformacion .main .contenidos .contenido .foto img {
+    width: 10rem;
+    height: 10rem;
+  }
+  html body.fotoInformacion .main .contenidos .contenido .informacion h4 {
+    align-self: center;
+  }
+  html body.fotoInformacion .main .contenidos .contenido .informacion p {
+    display: none;
+  }
+}
+html body.fotoInformacion .main .contenidos .contenido .informacion {
+  grid-area: informacion;
+}
+html body.fotoInformacion .main .contenidos .contenido .informacion h4 {
+  text-align: center;
+}
+html body.fotoInformacion .footer {
+  grid-area: footer;
+  background-color: #55e2fe;
+  display: flex;
+  justify-content: center;
+}
+html body.fotoInformacion .footer .reviews {
+  grid-area: review;
+  display: flex;
+  justify-items: start;
+  float: left;
+  padding: 0 10px;
+}
+html body.fotoInformacion .footer .reviews:not(:checked) > input {
+  position: absolute;
+  top: -9999px;
+}
+html body.fotoInformacion .footer .reviews:not(:checked) > label {
+  width: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 25px;
+  color: #8c00ff;
+}
+html body.fotoInformacion .footer .reviews:not(:checked) > label:before {
+  content: "★ ";
+}
+html body.fotoInformacion .footer .reviews > input:checked ~ label {
+  color: #aa4bf8;
+}
+html body.fotoInformacion .footer .reviews:not(:checked) > label:hover, html body.fotoInformacion .footer .reviews:not(:checked) > label:hover ~ label {
+  color: #750082;
+}
+html body.fotoInformacion .footer .reviews > input:checked + label:hover, html body.fotoInformacion .footer .reviews > input:checked + label:hover ~ label, html body.fotoInformacion .footer .reviews > input:checked ~ label:hover, html body.fotoInformacion .footer .reviews > input:checked ~ label:hover ~ label, html body.fotoInformacion .footer .reviews > label:hover ~ input:checked ~ label {
+  color: #9300a7;
+}
+html body.fotoDetallada {
+  color: #fff;
+  background-color: #8c00ff;
+  display: grid;
+  grid-template-areas: "header header header" "main main main" "comentario comentario comentario";
+}
+html body.fotoDetallada .header {
+  grid-area: header;
+  background-color: #55e2fe;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+html body.fotoDetallada .header .Titulo {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+html body.fotoDetallada .header .Titulo img {
+  width: 1rem;
+  height: 1rem;
+}
+html body.fotoDetallada .header .Titulo h3 {
+  font-family: cursive;
+  text-align: center;
+  color: #9d35ff;
+}
+html body.fotoDetallada .header .Titulo h3 span {
+  color: #ffc107;
+}
+html body.fotoDetallada .header .menuHamburguesa-botones {
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+}
+html body.fotoDetallada .header .menuHamburguesa-botones .menuHamburguesa img {
+  width: 1rem;
+}
+html body.fotoDetallada .header .menuHamburguesa-botones .botones button {
+  background-color: #8c00ff;
+  color: white;
+}
+html body.fotoDetallada .header .menuHamburguesa-botones .botones button:hover {
+  background-color: #30005d;
+}
+@media (min-width: 550px) {
+  html body.fotoDetallada .header .menuHamburguesa-botones .menuHamburguesa img {
+    display: none;
+  }
+  html body.fotoDetallada .header .menuHamburguesa-botones .botones img {
+    display: block;
+  }
+}
+@media (max-width: 550px) {
+  html body.fotoDetallada .header .menuHamburguesa-botones .menuHamburguesa {
+    display: block;
+  }
+  html body.fotoDetallada .header .menuHamburguesa-botones .menuHamburguesa.desaparece {
+    display: none;
+  }
+  html body.fotoDetallada .header .menuHamburguesa-botones .botones {
+    display: none;
+  }
+  html body.fotoDetallada .header .menuHamburguesa-botones .botones.aparece {
+    display: grid;
+  }
+}
+html body.fotoDetallada .main {
+  grid-area: main;
+}
+@media (max-width: 550px) {
+  html body.fotoDetallada .main .contenido {
+    display: grid;
+    justify-items: center;
+  }
+}
+html body.fotoDetallada .main .contenido h3 {
+  text-align: center;
+}
+html body.fotoDetallada .main .contenido img {
+  width: 18rem;
+  height: 15rem;
+  border: 2px solid #55e2fe;
+}
+@media (min-width: 550px) {
+  html body.fotoDetallada .main .contenido img {
+    float: left;
+    margin-right: 10px;
+  }
+}
+@media (max-width: 550px) {
+  html body.fotoDetallada .main .contenido img {
+    margin-top: 10px;
+  }
+}
+html body.fotoDetallada .main .informacion h3:last-of-type {
+  padding-top: 10px;
+  border-top: 2px solid #55e2fe;
+}
+@media (max-width: 550px) {
+  html body.fotoDetallada .main .informacion h3 {
+    text-align: center;
+  }
+}
+html body.fotoDetallada .comentario {
+  grid-area: comentario;
+  display: grid;
+  row-gap: 5px;
+  justify-items: center;
+}
+html body.fotoDetallada .comentario textarea {
+  width: 90%;
+  height: 5rem;
+}
+html body.fotoDetallada .comentario input[type=checkbox] {
+  width: 100%;
+  height: 20px;
+}
+html body.editorVacaciones {
+  color: #fff;
+  background-color: #8c00ff;
+  display: grid;
+  grid-template-areas: "header header header" "main main main";
+}
+html body.editorVacaciones .header {
+  height: 5rem;
+  grid-area: header;
+  background-color: #55e2fe;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+html body.editorVacaciones .header .CrearVacaciones-Titulo {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+html body.editorVacaciones .header .CrearVacaciones-Titulo img {
+  width: 2rem;
+  height: 2rem;
+}
+html body.editorVacaciones .header .CrearVacaciones-Titulo h3 {
+  font-family: cursive;
+  text-align: center;
+  color: #9d35ff;
+}
+html body.editorVacaciones .header .CrearVacaciones-Titulo h3 span {
+  color: #ffc107;
+}
+html body.editorVacaciones .header .menuHamburguesa-botones {
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+}
+html body.editorVacaciones .header .menuHamburguesa-botones .menuHamburguesa img {
+  width: 1rem;
+}
+html body.editorVacaciones .header .menuHamburguesa-botones .botones button {
+  background-color: #8c00ff;
+  color: white;
+}
+html body.editorVacaciones .header .menuHamburguesa-botones .botones button:hover {
+  background-color: #30005d;
+}
+@media (min-width: 650px) {
+  html body.editorVacaciones .header .menuHamburguesa-botones .menuHamburguesa img {
+    display: none;
+  }
+  html body.editorVacaciones .header .menuHamburguesa-botones .botones img {
+    display: block;
+  }
+}
+@media (max-width: 650px) {
+  html body.editorVacaciones .header .menuHamburguesa-botones .menuHamburguesa {
+    display: block;
+  }
+  html body.editorVacaciones .header .menuHamburguesa-botones .menuHamburguesa.desaparece {
+    display: none;
+  }
+  html body.editorVacaciones .header .menuHamburguesa-botones .botones {
+    display: none;
+  }
+  html body.editorVacaciones .header .menuHamburguesa-botones .botones.aparece {
+    display: grid;
+  }
+}
+html body.editorVacaciones .main {
+  grid-area: main;
+  display: grid;
+  align-items: start;
+  justify-items: center;
+}
+@media (min-width: 650px) {
+  html body.editorVacaciones .main {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (max-width: 650px) {
+  html body.editorVacaciones .main {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 450px) {
+  html body.editorVacaciones .main {
+    grid-template-columns: 1fr;
+  }
+}
+html body.editorVacaciones .main .contenido {
+  display: grid;
+  grid-template-areas: "foto foto crear" "detalle detalle detalle";
+  justify-self: center;
+}
+html body.editorVacaciones .main .contenido .fotos {
+  grid-area: foto;
+  display: grid;
+  align-self: end;
+}
+html body.editorVacaciones .main .contenido .fotos img {
+  width: 10rem;
+  height: 10rem;
+  border: 2px solid #55e2fe;
+}
+html body.editorVacaciones .main .contenido .crear {
+  grid-area: crear;
+  display: grid;
+  align-self: end;
+}
+html body.editorVacaciones .main .contenido .crear img {
+  width: 1rem;
+  height: 1rem;
+}
+html body.editorVacaciones .main .contenido .detalle {
+  display: grid;
+  align-self: start;
+  grid-area: detalle;
+  color: #55e2fe;
+  text-align: center;
+}
+html body.crearVacaciones {
+  color: #fff;
+  background-color: #8c00ff;
+  display: grid;
+  grid-template-areas: "header header header" "main main main";
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 3px;
+}
+html body.crearVacaciones .header {
+  height: 5rem;
+  grid-area: header;
+  background-color: #55e2fe;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+html body.crearVacaciones .header .Guardar-Titulo {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+html body.crearVacaciones .header .Guardar-Titulo img {
+  width: 1rem;
+  height: 1rem;
+}
+html body.crearVacaciones .header .Guardar-Titulo h3 {
+  font-family: cursive;
+  text-align: center;
+  color: #9d35ff;
+}
+html body.crearVacaciones .header .Guardar-Titulo h3 span {
+  color: #ffc107;
+}
+html body.crearVacaciones .header .menuHamburguesa-botones {
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+}
+html body.crearVacaciones .header .menuHamburguesa-botones .menuHamburguesa img {
+  width: 1rem;
+}
+html body.crearVacaciones .header .menuHamburguesa-botones .botones button {
+  background-color: #8c00ff;
+  color: white;
+}
+html body.crearVacaciones .header .menuHamburguesa-botones .botones button:hover {
+  background-color: #30005d;
+}
+@media (min-width: 600px) {
+  html body.crearVacaciones .header .menuHamburguesa-botones .menuHamburguesa img {
+    display: none;
+  }
+  html body.crearVacaciones .header .menuHamburguesa-botones .botones img {
+    display: block;
+  }
+}
+@media (max-width: 600px) {
+  html body.crearVacaciones .header .menuHamburguesa-botones .menuHamburguesa {
+    display: block;
+  }
+  html body.crearVacaciones .header .menuHamburguesa-botones .menuHamburguesa.desaparece {
+    display: none;
+  }
+  html body.crearVacaciones .header .menuHamburguesa-botones .botones {
+    display: none;
+  }
+  html body.crearVacaciones .header .menuHamburguesa-botones .botones.aparece {
+    display: grid;
+  }
+}
+html body.crearVacaciones .main {
+  grid-area: main;
+  display: grid;
+  grid-gap: 5px;
+  justify-content: center;
+}
+html body.crearVacaciones .main .titulo {
+  display: grid;
+  justify-items: center;
+  grid-row-gap: 10px;
+}
+html body.crearVacaciones .main .titulo input {
+  width: 50%;
+  height: 100%;
+}
+html body.crearVacaciones .main .titulo h1 {
+  width: 100%;
+  border-top: 2px solid #55e2fe;
+  border-bottom: 2px solid #55e2fe;
+  text-align: center;
+}
+html body.crearVacaciones .main .caracteristicas {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(6, 100px);
+  grid-gap: 1rem;
+}
+html body.crearVacaciones .main .caracteristicas .camara {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  background-color: #fff;
+}
+@media (min-width: 600px) {
+  html body.crearVacaciones .main .caracteristicas .camara img {
+    width: 3rem;
+  }
+}
+@media (max-width: 600px) {
+  html body.crearVacaciones .main .caracteristicas .camara img {
+    width: 1rem;
+  }
+}
+html body.crearVacaciones .main .caracteristicas .camara-azul {
+  display: grid;
+  justify-items: center;
+  align-items: end;
+  grid-column-start: 3;
+  grid-row-start: 1;
+}
+@media (min-width: 600px) {
+  html body.crearVacaciones .main .caracteristicas .camara-azul img {
+    width: 5rem;
+  }
+}
+@media (max-width: 600px) {
+  html body.crearVacaciones .main .caracteristicas .camara-azul img {
+    width: 3rem;
+  }
+}
+html body.crearVacaciones .main .caracteristicas .basura {
+  display: grid;
+  align-items: end;
+  justify-items: center;
+  grid-column-start: 6;
+}
+@media (min-width: 600px) {
+  html body.crearVacaciones .main .caracteristicas .basura img {
+    width: 5rem;
+  }
+}
+@media (max-width: 600px) {
+  html body.crearVacaciones .main .caracteristicas .basura img {
+    width: 3rem;
+  }
+}
+html body.crearVacaciones .main .caracteristicas .tituloPunto {
+  display: grid;
+  grid-column-start: 3;
+  grid-column-end: 7;
+  grid-row-start: 2;
+}
+html body.crearVacaciones .main .caracteristicas .tituloPunto input {
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+}
+@media (max-width: 600px) {
+  html body.crearVacaciones .main .caracteristicas .tituloPunto input {
+    text-align: center;
+  }
+}
+html body.crearVacaciones .main .caracteristicas .hacer {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 3;
+  grid-row-end: 5;
+}
+html body.crearVacaciones .main .caracteristicas .hacer input {
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+}
+@media (max-width: 600px) {
+  html body.crearVacaciones .main .caracteristicas .hacer input {
+    text-align: center;
+  }
+}
+html body.crearVacaciones .main .caracteristicas .añadir-Fichero {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 5;
+  grid-row-end: 8;
+  background-color: #55e2fe;
+}
+html body.crearVacaciones .main .caracteristicas .añadir-Fichero img {
+  width: 5rem;
+}
+html body {
+  background-color: #55e2fe;
+  width: 100%;
+  min-height: 100vh;
+}
+html body .container {
+  font-family: Arial, Helvetica, sans-serif;
+  display: grid;
+  justify-items: center;
+  row-gap: 5px;
+}
+html body .container h1 {
+  font-family: cursive;
+  text-align: center;
+  color: #9d35ff;
+}
+html body .container h1 span {
+  color: #ffc107;
+}
+html body .container input {
+  width: 15rem;
+}
+html body .container input[type=checkbox] {
+  width: 100%;
+  height: 20px;
+}
+html body .container button {
+  width: 16rem;
+  color: #ffffff;
+  background-color: #9d35ff;
+}
+html body .container button:hover {
+  background-color: #30005d;
+}/*# sourceMappingURL=styles.css.map */
